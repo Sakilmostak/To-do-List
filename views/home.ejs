@@ -4,8 +4,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
     <h1>It is working</h1>
+    <form action="/create" method="POST">
+        <input type="text" name="content" id="content" placeholder="Type Something..." required>
+        <input type="date" name="date" id="" required>
+        <select name="category" id="">
+            <option value="Work">Work</option>
+            <option value="Casual">Casual</option>
+            <option value="Home">Home</option>
+            <option value="Weekend">Weekend</option>
+            <option value="Important">Important</option>
+        </select>
+        <button type="submit">Create</button>
+
+    </form>
 </body>
 </html>
