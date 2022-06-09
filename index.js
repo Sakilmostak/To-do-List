@@ -1,6 +1,12 @@
-const Express = require('express');
-const app = Express();
+const express = require('express');
+const app = express();
 const port = 3000;
+
+app.use(express.static('./assets'));
+
+//setting up view engine as ejs
+app.set('view engine','ejs');
+app.set('views','./views');
 
 //express router
 app.use('/', require('./routes'));
