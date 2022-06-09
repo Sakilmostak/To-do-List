@@ -1,9 +1,20 @@
 const Home= require('../models/home');
 
 module.exports.home = function(req,res){
-    return res.render('home',{
-        title: "To-Do List"
+
+    Home.find({},function(err, todos){
+        if(err){
+            console.log('Error in fetching todos from db');
+            return;
+        }
+
+        return res.render('home',{
+            title: "To-Do List",
+            todos: todos
+        });
     });
+
+    
 }
 
 module.exports.create = function(req,res){
@@ -12,7 +23,7 @@ module.exports.create = function(req,res){
             content: req.body.content,
             category: req.body.category,
             date: req.body.date,
-            check: false
+            check: true
         },
         function(err,todo){
             if(err){

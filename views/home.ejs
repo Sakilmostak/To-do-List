@@ -21,5 +21,18 @@
         <button type="submit">Create</button>
 
     </form>
+
+    <ul>
+        <% for(todo of todos){ %> 
+            <li>
+                <form action="">
+                    <input type="checkbox" name="check" id="" <% if(todo.check){%>checked<%}%>>
+                </form>
+                <p><%= todo.content %></p>
+                <p><%= todo.category %></p>
+                <p><%= todo.date %></p>
+            </li>
+        <% } %>
+    </ul>
 </body>
 </html>
