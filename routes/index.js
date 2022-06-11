@@ -5,7 +5,9 @@ const homeController = require('../controllers/home_controller');
 
 router.get('/',homeController.home);
 
-router.post('/create', homeController.create)
+router.post('/create', homeController.create);
+router.post('/check/:id', homeController.check);
+router.post('/destroy', homeController.destroy);
 
 
 module.exports= router;

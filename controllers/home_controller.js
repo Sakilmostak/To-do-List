@@ -1,37 +1,62 @@
 const Home= require('../models/home');
 
-module.exports.home = function(req,res){
+module.exports.home = async function(req,res){
 
-    Home.find({},function(err, todos){
-        if(err){
-            console.log('Error in fetching todos from db');
-            return;
-        }
+    try{
+        let todos = await Home.find({});
 
         return res.render('home',{
             title: "To-Do List",
             todos: todos
         });
-    });
+    }
+    catch(err){
+        console.log('Error',err);
+    }
 
     
 }
 
-module.exports.create = function(req,res){
-    Home.create(
-        {
-            content: req.body.content,
-            category: req.body.category,
-            date: req.body.date,
-            check: true
-        },
-        function(err,todo){
-            if(err){
-                console.log('error in creating task',err);
+module.exports.create = async function(req,res){
+    try{
+        console.log(req.body.date);
+        let todo = await Home.create(
+            {
+                content: req.body.content,
+                category: req.body.category,
+                date: req.body.date,
             }
+        );
+        return res.redirect('back');
+    }
+    catch(err){
+        console.log('Error',err);
+    }
+}
 
-            console.log('*******',todo);
-            return res.redirect('back');
-        }
-    );
+module.exports.check = async function(req, res){
+    try{
+        let todo = await Home.findOne({_id: req.params.id});
+
+        todo.check= !todo.check;
+        todo.save();
+        return res.redirect('back');
+    }
+    catch(err){
+        console.log('Error',err);
+    }
+
+}
+
+module.exports.destroy = async function(req,res){
+    try{
+        await Home.deleteMany({check : true});
+
+        return res.redirect('back');
+    }
+    catch(err){
+        console.log('Error',err);
+    }
+
+    
 }

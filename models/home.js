@@ -11,11 +11,13 @@ const homeSchemna = new mongoose.Schema(
             required: true
         },
         date: {
-            type: Date,
+            type: String,
             required: true
         },
         check: {
-            type: Boolean
+            type: Boolean,
+            default: false,
+            required: true
         }
     }
 );

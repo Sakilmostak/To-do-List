@@ -1,4 +1,118 @@
 body{
     margin: 0px;
-    background-color: aqua;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(90deg, black, blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
+
+h1 {
+    color: white;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+select, input[type=date] {
+    margin-top: 5px;
+    margin-bottom: 30px;
+    width: 156px;
+    height: 30px;
+}
+
+button {
+    width: 130px;
+    height: 40px;
+}
+
+#create {
+    margin: 0 93px;
+    background-color: rgb(180, 252, 166);
+}
+
+#create:hover {
+    background-color: rgb(106, 250, 77);
+    transition: 0.5s ease-in;
+}
+
+#delete {
+    background-color: rgb(253, 166, 158);
+}
+
+#delete:hover {
+    background-color: rgb(250, 83, 68);
+    transition: 0.5s ease-in;
+}
+
+ul {
+    width: 315px;
+    border: 1px solid white;
+}
+
+.todolist { 
+    width: 280px;
+    margin: 5px 0;
+    min-height: 50px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+.check {
+    width:10%;
+}
+
+.check input {
+    margin-top: 20px;
+    margin-left: 8px;
+}
+
+.content {
+    width: 90%;
+}
+
+.category {
+    width: 30%;
+    margin:0;
+    border: 1px solid rgb(172, 170, 170);
+    text-align: center;
+}
+
+.date {
+    width: 30%;
+    margin:0;
+    border: 1px solid rgb(172, 170, 170);
+    text-align: center;
+}
+
+.Work {
+    background-color: rgb(157, 157, 249);
+}
+
+.Casual {
+    background-color: rgb(157, 249, 249);
+}
+
+.Home {
+    background-color: rgb(249, 249, 157);
+}
+
+.Weekend {
+    background-color: rgb(249, 157, 238);
+}
+
+.Important {
+    background-color: rgb(235, 84, 84);
+}
+
+.linethrough {
+    text-decoration: line-through;
+}
+

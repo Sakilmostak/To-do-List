@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-    <h1>It is working</h1>
+    <h1>Todo List</h1>
     <form action="/create" method="POST">
-        <input type="text" name="content" id="content" placeholder="Type Something..." required>
+        <textarea rows="3" cols="40" name="content" id="content" placeholder="Type Something..." required></textarea>
+        <br>
         <input type="date" name="date" id="" required>
         <select name="category" id="">
             <option value="Work">Work</option>
@@ -18,19 +19,23 @@
             <option value="Weekend">Weekend</option>
             <option value="Important">Important</option>
         </select>
-        <button type="submit">Create</button>
-
+        <br>
+        <button id="create" type="submit">Create</button>
+    </form>
+    <form action="/destroy" method="POST">
+        <button id="delete" type="submit">Delete</button>
     </form>
 
     <ul>
         <% for(todo of todos){ %> 
-            <li>
-                <form action="">
-                    <input type="checkbox" name="check" id="" <% if(todo.check){%>checked<%}%>>
+            <li class="todolist">
+                <form class="check" action="/check/<%=todo._id%>" method="POST">
+                    <input type="checkbox" name="check" id="todocomplete" onChange="this.form.submit()" <% if(todo.check){%>checked<%}%>>
                 </form>
-                <p><%= todo.content %></p>
-                <p><%= todo.category %></p>
-                <p><%= todo.date %></p>
+                <p class="content <% if(todo.check){%>linethrough<%}%>"><%= todo.content %></p>
+                <p class="category <%= todo.category %>"><%= todo.category %></p>
+                <br>
+                <small class="date"><%= todo.date %></small>
             </li>
         <% } %>
     </ul>
