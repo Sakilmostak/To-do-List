@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//setting up schema structure for the db
 const homeSchemna = new mongoose.Schema(
     {
         content: {
@@ -22,6 +23,8 @@ const homeSchemna = new mongoose.Schema(
     }
 );
 
+//creating the collection
 const Home= mongoose.model('Home',homeSchemna);
 
+//making it public
 module.exports = Home;
